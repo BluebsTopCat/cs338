@@ -1,12 +1,12 @@
-===daytime===
-192.168.61.128 -> 129.6.15.28 TCP [SYN]
-129.6.15.28 -> 192.168.61.128 TCP [SYN, ACK]
-192.168.61.128 -> 129.6.15.28 TCP [ACK]
-129.6.15.28 -> 192.168.61.128 DAYTIME
-129.6.15.28 -> 192.168.61.128 TCP [FIN, PSH, ACK]
-192.168.61.128 -> 129.6.15.28 TCP [ACK]
-192.168.61.128 -> 129.6.15.28 TCP [FIN ACK]
-129.6.15.28 -> 192.168.61.128 TCP [ACK]
+===DAYTIME===
+192.168.61.128 -> 129.6.15.28 TCP [SYN] (hey can we talk)
+129.6.15.28 -> 192.168.61.128 TCP [SYN, ACK] (Hey can we talk, message received)
+192.168.61.128 -> 129.6.15.28 TCP [ACK] (message received)
+129.6.15.28 -> 192.168.61.128 DAYTIME (I'm just a daytime server so don't bother asking, here it is.)
+129.6.15.28 -> 192.168.61.128 TCP [FIN, PSH, ACK] (Goodbye, I sent your data, messsage received.)
+192.168.61.128 -> 129.6.15.28 TCP [ACK] (data received)
+192.168.61.128 -> 129.6.15.28 TCP [FIN ACK] (goodbye, other message received)
+129.6.15.28 -> 192.168.61.128 TCP [ACK] (message received.)
 
 Port 13 is used, this specifies where TCP should send the process within your computer.
 
@@ -14,3 +14,18 @@ Syn is synchronize - "hey can we talk"
 Ack is agknowledge - "I got your message"
 
 The remote server closed the connection by sending FIN at line 6.
+
+===HTTP===
+How many TCP connections were opened? How can you tell?
+  Three- there are three lines with just the request [SYN] followed by a response of [SYN, ACK]
+Can you tell where my homepage (index.html) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
+  Line 4, the request following synchronization is Get /index.html HTTP/1.1, a pretty readable line.
+Can you tell where my photograph (jeff-square-colorado.jpg) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
+  Line 8, it's also a get line formatted with GET /jeff-square-colorado.jpg HTTP/1.1, requesting the image with the given format.
+
+===QUESTIONS===
+Is there a way to filter by keywords that aren't a flag or some other structure?
+
+Is there a way to condense repeating lines (such as image file transmission?)
+
+Can you clump lines related to the same TCP connection opening and closing?
