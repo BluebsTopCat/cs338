@@ -1,0 +1,16 @@
+===daytime===
+192.168.61.128 -> 129.6.15.28 TCP [SYN]
+129.6.15.28 -> 192.168.61.128 TCP [SYN, ACK]
+192.168.61.128 -> 129.6.15.28 TCP [ACK]
+129.6.15.28 -> 192.168.61.128 DAYTIME
+129.6.15.28 -> 192.168.61.128 TCP [FIN, PSH, ACK]
+192.168.61.128 -> 129.6.15.28 TCP [ACK]
+192.168.61.128 -> 129.6.15.28 TCP [FIN ACK]
+129.6.15.28 -> 192.168.61.128 TCP [ACK]
+
+Port 13 is used, this specifies where TCP should send the process within your computer.
+
+Syn is synchronize - "hey can we talk"
+Ack is agknowledge - "I got your message"
+
+The remote server closed the connection by sending FIN at line 6.
