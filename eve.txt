@@ -1,0 +1,117 @@
+=== DIFFIE HELLMAN ===
+
+The secret number is 31. Alice's is 45 and Bob's is 67
+
+g = 5, p = 103
+
+Alice - X
+Bob - Y
+
+We know these three facts:
+
+5^x mod 103 = 10
+
+5^y mod 103 = 71
+
+71^x mod 103 = 10^y mod 103
+
+so my code as follows was:
+
+p = 103
+g = 5
+
+alicepub = 10
+bobpub = 71
+
+alicesecret = 0
+
+bobsecret = 0
+
+while True:
+    while True:
+        if pow(g, alicesecret, p) is alicepub:
+            print(alicesecret)
+            break
+        alicesecret += 1
+    while True:
+        if pow(g, bobsecret, p) is bobpub:   
+            print(bobsecret)
+            break
+        bobsecret += 1
+    if pow(bobpub, alicesecret, p) is pow(alicepub, bobsecret, p):
+        break
+
+print(pow(bobpub, alicesecret, p))
+
+This would iterate through numbers for Alice and bob, finding the lowest possible value for which the modulo held true, then checking if the two final pairs output the same number. This absolutely wouldn't work on any large number, but because our sample was so small the easiest option was a brute force attack.
+
+=== RSA Encryption ===
+
+"Hey Bob, here's some cryptography history for you (https://en.wikipedia.org/wiki/The_Magic_Words_are_Squeamish_Ossifrage). Happy factoring, Alice."
+
+My code below. This one EVEN MORE relies on brute forcing (both to find prime factors because I was lazy, and to find the private key from the lcm and n. Were these the length of normal keys, my code would never finish.
+However, Alice's encoding is insecure either way. She didn't encrypt it with her private key, so Bob has no way of verifying that the message actually came from her, where the standard would be decrypting it with her public key.
+
+import math
+pub_bob = (17, 266473)
+#e = 17, n = 266473
+a_message = [42750, 225049, 67011, 9062, 263924, 83744, 10951, 156009,
+174373, 125655, 207173, 200947, 227576, 183598, 148747, 211083,
+225049, 218587, 191754, 164498, 225049, 171200, 193625, 99766,
+94020, 223044, 38895, 74666, 48846, 219950, 139957, 77545,
+171672, 165278, 150326, 262673, 164498, 142355, 77545, 171672,
+255299, 5768, 264753, 75667, 261607, 31371, 164498, 140654,
+244325, 140696, 40948, 179472, 168428, 34824, 32543, 30633,
+104926, 190298, 148747, 132510, 42607, 232272, 42721, 188452,
+239228, 50536, 216512, 139240, 78779, 166647, 100152, 261607,
+121165]
+
+# p * q = 266473
+def primefinder(num):
+    if num < 2:
+        return []
+    for i in range(2, num):
+        if num % i == 0:
+            return [i] + primefinder(num//i) 
+    return [num]
+
+def decrypt(val, n, d):
+    return(pow(val,d,n))
+
+def encrypt(val, n, e):
+    return(pow(val,e,n))
+
+primepair = primefinder(pub_bob[1])
+print(primepair)
+
+lcm = math.lcm(primepair[0] -1, primepair[1] -1)
+
+print(lcm)
+# 1 = (public key * private key) mod lcm
+
+#The brute force step, the one that would absolutely break. This and finding the prime factorization
+while True:
+    i += 1
+    if (pub_bob[0] * i) % lcm == 1:
+        break
+
+priv_bob = (i,pub_bob[1])
+
+out_message = []
+rec_message = []
+for a in a_message:
+    out_message += [decrypt(a, priv_bob[1], priv_bob[0])]
+
+# Just to test that I did it right here's a reencryption
+# for a in out_message:
+#   rec_message += [encrypt(a, pub_bob[1], pub_bob[0])]
+
+# hex?
+output = ""
+for a in out_message:
+    # turns the integers into hexadecimal into bytes, uses that midstep because alternatives are more finnicky.
+    b = bytes.fromhex(hex(a)[2:].zfill(2))
+    #then turns it into utf!
+    output += b.decode("utf-8")
+ 
+print(output)
