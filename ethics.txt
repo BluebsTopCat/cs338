@@ -1,0 +1,84 @@
+You have discovered a bug in the InstaToonz music-sharing app. This bug is a nasty one that would allow an attacker to read the contents of all the private InstaToonz direct messages for anyone who has ever posted a public InstaToonz message. This bug threatens the privacy of hundreds of millions of InstaToonz users.
+
+You want to report this bug to InstaToonz, Inc. to protect their customers, but you know that the last time somebody reported a security bug to them privately, InstaToonz sued the bug-reporter in North Carolina and also called in the FBI, causing the person significant hassle and expense. The case was briefly a cause célèbre in the tech world, with calls for boycotts and state and Congressional action. Eventually, after a fair amount of sabre-rattling, InstaToonz dropped the suit. But at the same time, they released a statement articulating their belief that all security researchers (which InstaToonz always put inside scare quotes) are engaging in attempted thievery of trade secrets. After a brief investigation upon being first contacted by InstaToonz, the FBI declined to pursue the matter further. InstaToonz has refused all demands that they establish a bug bounty program.
+
+This scenario has an interesting legal twist if it occurs in the US. If you choose to analyze this scenario, take into account in your analysis two possible options:
+
+Suppose the bug involves the encryption and copy-protection of the music shared by InstaToonz users. You are not a lawyer, but you're concerned that your uncovering of this bug may put you in violation of Section 1201 of the Digital Millennium Copyright Act.
+
+Suppose the bug does not involve encryption or copy-protection.
+
+Identify the main ethical question or questions faced by the main character ("you") in the scenario. This will certainly include "what should you do?", but there may be other interesting questions to consider.
+
+-The main ethical question is should you reveal this information at the expense of personal harm / legal repercussion? And what if the legal repercussion comes from the people who you're helping? Good Samaritan Laws and the like.
+
+For each stakeholder (or category of stakeholders) in the scenario, identify the stakeholder's relevant rights.
+
+-You don't have any, regarding this information. It's company property, and maybe even illegal for you to have. The company has a right to their code, their systems, and a right, technically, for people to not know their vulnerabilities.
+
+
+List any information missing from the scenario that you would like to have to help you make better choices.
+
+-How likely is anyone else to find this vulnerability?
+
+Describe your possible actions, and discuss the likely consequences of those actions.
+
+-You could come clean, and face jail and legal battles
+
+-You could not, and risk data breach for innocent people
+
+Discuss whether the ACM Code of Ethics and Professional Conduct offers any relevant guidance.
+
+-Respect Privacy,  Ensure that the public good is the central concern during all professional computing work.
+
+Describe and justify your recommended action, as well as your answers to any other questions you presented in part A.
+
+-In this situation, regardless of if the system has copy protection or encryption, I believe that the most ethical option is to anonymously inform InstaToonz of the issue, and your method of accessing it, without revealing any personal information. The safety of users of the app is important- and the bug being fixed is important, but revealing it does not necessarily mean revealing yourself either or exposing yourself to harm. If they don't acknowledge it, or refuse to fix it, revealing it to the press might also be a better option (with the specifics stripped out.) If you're willing to be a bit more legally dubious, suggest you'll do so if they don't fix it. Companies don't act in the best interest of their users, just themselves. Conflate the two.
+
+
+
+Your company, Beerz, is an early-stage startup with the world-changing vision of connecting people to local breweries. When a user launches version 1.0 of the Beerz app, the app sends the user's location to the beerz.com API, which sends a map of local breweries back to the app. The server immediately discards the user's location once the map is generated.
+
+You joined the Beerz development team recently, drawn certainly by your love of beer and app-building, but also in part by pitch the CTO gave you. In particular, she said that Beerz was dedicated to providing a simple, useful service to users in exchange for a modest subscription fee. "We're not going to participate in surveillance capitalism. We protect our users' data while we have it, and we discard it when we're done with it." You were sold right then, and you have now been put in charge of feature development for Beerz 2.0. (The Beerz 1.1 team is currently whacking bugs as fast as they can go. It's a startup; the code is a mess.)
+
+On your list of potential new features for Beerz 2.0 are these ideas:
+
+    Show users how popular each brewery has been during the past week among Beerz 2.0 users
+    For each brewery X, show users which other breweries Y were popular during the past week among users who visited X
+
+You give a presentation to the bosses about your team's proposed new features, including the ones described above. When you get to those two features, you spend several slides talking about the fact that these features will require storing users' location data, and your plan for how to preserve their privacy (mostly via a strict policy of scrubbing all user data that is more than one week old).
+
+The bosses love your presentation and give their blessing to you to push forward to design and implementation. But then the CEO says "Let's wait a bit on the data-scrubbing. I was at a conference last week, and some of the people there were talking about how much additional revenue they've been able to generate by bundling anonymized location data for sale." Replying to the CEO, one of your development colleagues (a deeply annoying and profoundly clueless fellow) enthusiastically says "You know, I think we could probably get all the old location data out of the API's archived web logs, since we send the user's location as a GET parameter so it's in the URL that gets stored in the log." The CEO is super-excited about this and the meeting ends. The CTO, who has not yet commented on this last part of the meeting, congratulates you on an excellent presentation and then gives you a worried look before heading back to her office.
+
+You like your job, you love working with nearly all your co-workers, and you really believe in the vision of Beerz that the CTO shared with you during your interview. But you also care about your customers' privacy.
+
+Now what?
+
+Identify the main ethical question or questions faced by the main character ("you") in the scenario. This will certainly include "what should you do?", but there may be other interesting questions to consider.
+
+-Is it okay for you to stay with a company that's going to do bad things? Do you have an ethical obligation to stop them? If you can't stop them, what are you obligated to do?
+
+For each stakeholder (or category of stakeholders) in the scenario, identify the stakeholder's relevant rights.
+
+-Most likely, the company has all rights in this situation- their contract would cover the code you've written, and you'd be under a nondisclosure agreement.
+
+List any information missing from the scenario that you would like to have to help you make better choices.
+
+-How secure is your job? Will you be fired if you raise a fuss?
+
+Describe your possible actions, and discuss the likely consequences of those actions.
+
+-You can stay quiet, and allow what's going on to continue- risking the data of your users and not supporting the CTO in any way- they're less likely to speak up either.
+
+-You can raise a fuss about the prospect, and risk your job in the prospect, but maybe stop the plan from going through.
+
+-You can work with the other programmers (except the bad one) to collectively refuse and keep your position more stable.
+
+Discuss whether the ACM Code of Ethics and Professional Conduct offers any relevant guidance.
+
+-Respect Privacy, Design Secure systems. Keeping a log of people's locations in your old code when you're not using it for anything is TERRIBLE. This guy should be ashamed of his logging abilities.
+
+Describe and justify your recommended action, as well as your answers to any other questions you presented in part A
+
+-I think (if you can afford the risk) talking directly to the CTO, or collective organization with the rest of your programming team is the right bet. This should define whether you want to keep working at the company at all- and will serve as a litmus test for whether you can trust the people you work with and for. Maybe it'll get something done, maybe you'll do nothing, but it's certainly better than not saying anything to begin with.
+
