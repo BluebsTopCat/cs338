@@ -1,0 +1,21 @@
+Jane Dee Horwitz Parson
+1:
+	a: One cookie, Theme, is set to default.
+	b: The theme is now set to red.
+	c: Set-Cookie: theme=red; Expires=Wed, 21 Jan 2026 20:45:38 GMT; Path=/ and Cookie: theme=red afterwards. I do see the same cookie values.
+	d: yes, it is.
+	e: A ?theme=red attached at the end of the url.
+	f: a new GET request for the page with the ? attached.
+	g: edit the cookie directly and reload the page
+	h: change the color mentioned in the GET request.
+	i: for windows, in %AppData% \ Mozilla for firefox and \Google for google.
+2:
+	a: Reflected (as in, the bulk of it is off the target server) and Stored (as in, the attack's bulk is on the target server)
+	b: Moriarty's XSS attacks are stored on the server, and behave as such:
+		1: Moriarty writes a malicious chunk of code, the error message, for example.
+		2: Moriarty embeds this in his post with the <script> </script> tag, which a poorly designed reader will run on load.
+		3: A user loads the information on the page, and eval() is called on the contents of his post, which RUNS THE CODE
+	c: JavaScript can grab page cookies, including login information that ends up stored there, and deposit it on an external site.
+	d: You could also write code that forces the user to take some action on the website (think twitter's self-reteweeting Heart Emoji attack)
+	e: Sanitize your data inputs! You don't want any bobby tables making their way through your site. Remove code markers like < and >, or just don't evaluate the string.
+
