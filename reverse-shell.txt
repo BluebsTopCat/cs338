@@ -1,0 +1,20 @@
+Jane Dee Horwitz Parson - I worked with Nicholas Vahlos-Sten for this assignment
+
+1:
+	a: http://danger.jeffondich.com/uploadedimages/parsonjwebshell1.php?command=whoami. running the php file on the server with the command as an extra designator. answers with www-data
+	b: <pre> stands for preformatted, which stops the website from modifying / formatting the result of the php codeand making it unrunnable. If you don't use it your outputs are a mess to read.
+2:
+	a: /var/www/
+	b: root daemon bin sys sync games man lp mail news uucp proxy www-data backup list irc gnats nobody systemd-network systemd-resolve messagebus systemd-timesync syslog _apt  tss uuidd tcpdump usbmux sshd pollinate landscape fwupd-refresh jeff postgres Bullwinkle dhcpcd polkitd. The etc/passwd folder
+	c: Those usernames and links to their password hashes.
+	d: Nope! Permission denied. That's where the hashes are.
+	e:   Frog Textart at secrets/kindasecret.txt, Birds at youwontfindthiswithgobuster/secret.txt, YOU FOUND ME! at html/index.html, Plans and Secrets in intrigue.jeffondich.com/misc/plans-and-secrets.tx ((ANALOG) COOKIES ARE DELICIOUS)
+	d: You can't cd more than twice backwards or the site hangs.
+3:
+ 	a: I ran ipconfig on my kali terminal 
+	b: I ran ipconfig on my laptop terminal. I should use kali's to communicate with Kali, as that's where they hosted it from.
+	c: done
+	d: done
+	e: done. I have a shell now. I can tell it's kali because it says kali.
+	f: Those %20's were all spaces.
+	g: I'm hosting the server on Kali at http://MY-KALI-IP/. I've set my NetCat terminal on my main computer (attacker) to listen to port 5050, and send messages to and from. I then opened that url you provided, which accessed my kali ip, then BACKPORTED information from my webshell php into my terminal so I don't have to execute all my commands at the same time on the same line. I now have a sudo'd terminal with complete access to my kali vm.
